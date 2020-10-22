@@ -75,7 +75,7 @@ class VirtualGame {
 
 	    let loosingMoveCount = 0;
 	    for (const promisingMoveQuality of promisingMoveQualities) {
-	        this.calculateMoveQuality(promisingMoveQuality, lookAheadLayer + 1);
+			this.calculateMoveQuality(promisingMoveQuality, lookAheadLayer + 1);
 			moveQuality.deepestLayer = Math.max(moveQuality.deepestLayer,
 				promisingMoveQuality.deepestLayer);
 			if (this.checkWin(moveQuality, promisingMoveQuality)) return;
