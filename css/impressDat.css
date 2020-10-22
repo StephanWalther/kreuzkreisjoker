@@ -1,0 +1,33 @@
+h1, h2, p {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	margin-top: calc(2.5*var(--sizeFactor));
+	font-size: calc(5*var(--sizeFactor));
+}
+
+h2 {
+	margin-top: calc(6*var(--sizeFactor));
+	font-size: calc(4.25*var(--sizeFactor));
+}
+
+p {
+	margin-top: calc(2.5*var(--sizeFactor));
+	font-size: calc(var(--basicFontFactor)*var(--sizeFactor));
+	line-height: calc(var(--basicLineHeightFactor)*var(--sizeFactor));
+}
+
+footer {
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+#backLink {
+	width: calc(35*var(--sizeFactor));
+	margin: calc(12*var(--sizeFactor)) 0 0 0;
+	text-decoration: none;
+	color: black;
+}

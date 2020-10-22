@@ -1,0 +1,49 @@
+header {
+    padding: 0;
+    margin: 0;
+
+    height: calc(20*var(--sizeFactor));
+
+    box-sizing: border-box;
+    border-bottom-style: solid;
+    border-bottom-left-radius: calc(2*var(--sizeFactor));
+    border-bottom-right-radius: calc(2*var(--sizeFactor));
+    border-bottom-width: calc(0.2*var(--sizeFactor));
+    border-bottom-color: var(--basicGray);
+}
+
+section {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: table;
+}
+
+#gameSection {
+    height: calc(55*var(--sizeFactor));
+}
+
+#auxiliaryGameSection {
+    height: calc(17.5*var(--sizeFactor));
+
+    box-sizing: border-box;
+    border-top-style: solid;
+    border-top-width: calc(0.2*var(--sizeFactor));
+    border-top-color: var(--basicGray);
+}
+
+footer {
+    padding: 0;
+    margin: 0;
+
+    height: calc(7.5*var(--sizeFactor));
+
+	text-align: center;
+
+    box-sizing: border-box;
+    border-top-style: solid;
+    border-top-left-radius: calc(1*var(--sizeFactor));
+    border-top-right-radius: calc(1*var(--sizeFactor));
+    border-top-width: calc(0.2*var(--sizeFactor));
+    border-top-color: var(--basicGray);
+}

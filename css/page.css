@@ -1,0 +1,30 @@
+body {
+    --sizeFactor: min(1.7777vw, 1vh); /* 1.7777 is approximately 16/9, which is the ratio of the page.  */
+
+	--basicFontFactor: 3.25;
+	--basicLineHeightFactor: 5;
+
+    --basicGray: rgb(100, 100, 100);
+    --basicBlue: rgb(50, 200, 255);
+    --lightBlue: rgb(125, 225, 255);
+	--green: rgb(100, 225, 100);
+	--red: rgb(255, 100, 100);
+
+    background-color: rgb(245, 245, 255);
+    font-family: Arial, Helvetica, sans-serif;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+	overflow: hidden;
+}
+
+#pageContainer {
+    padding: 0;
+    margin: calc((100vh - 100*var(--sizeFactor))*0.5) auto;
+    width: calc(56.25*var(--sizeFactor)); /* 56.25 = 9/16*100, see the --sizeFactor above.  */
+    height: calc(100*var(--sizeFactor));
+}
+
+#page {
+	padding: 0 calc(2*var(--sizeFactor));
+}

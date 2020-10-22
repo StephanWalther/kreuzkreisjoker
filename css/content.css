@@ -1,0 +1,189 @@
+#title {
+    padding: calc(2.5*var(--sizeFactor)) 0 0 0;
+    margin: 0 auto;
+    text-align: center;
+    font-size: calc(5*var(--sizeFactor));
+    text-shadow: calc(0.25*var(--sizeFactor))
+                calc(0.25*var(--sizeFactor))
+                calc(0.25*var(--sizeFactor))
+                rgba(0, 0, 0, 0.5);
+}
+
+#navButtons {
+    padding: calc(2*var(--sizeFactor)) 0 0 0;
+    margin: 0;
+    text-align: center;
+}
+
+#gameButtons {
+    padding: 0;
+    margin: 0;
+}
+
+.button {
+    display: inline-block;
+
+	width: calc(22.5*var(--sizeFactor));
+    height: calc(5*var(--sizeFactor));
+    line-height: calc(5*var(--sizeFactor));
+    padding: 0;
+    margin: calc(var(--sizeFactor)) calc(var(--sizeFactor));
+    font-size: calc(3.25*var(--sizeFactor));
+
+    border-style: solid;
+    border-width: calc(0.1*var(--sizeFactor));
+    border-radius: calc(0.5*var(--sizeFactor));
+}
+
+.activeButton {
+	cursor: pointer;
+	background-color: var(--basicBlue);
+	box-shadow: calc(0.4*var(--sizeFactor))
+                calc(0.4*var(--sizeFactor))
+                calc(0.75*var(--sizeFactor))
+                rgba(0, 0, 0, 0.5);
+}
+
+.inactiveButton {
+	cursor: default;
+	color: rgb(0, 0, 0, 0.2);
+	background-color: rgb(0, 0, 0, 0.2);
+	border-color: rgb(0, 0, 0, 0.2);
+	box-shadow: calc(0.4*var(--sizeFactor))
+                calc(0.4*var(--sizeFactor))
+                calc(0.75*var(--sizeFactor))
+                rgba(0, 0, 0, 0.2);
+}
+
+@media (hover: hover) {
+    .activeButton:hover {
+        background-color: var(--lightBlue);
+    }
+}
+
+.activeButton:active {
+    background-color: var(--lightBlue);
+}
+
+.gameSectionContent {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    display: table-cell;
+    vertical-align: middle;
+	font-size: calc(var(--basicFontFactor)*var(--sizeFactor));
+	line-height: calc(var(--basicLineHeightFactor)*var(--sizeFactor));
+}
+
+#board {
+    border-collapse: collapse;
+    padding-left: calc((100%
+                        - 7*6*var(--sizeFactor)
+                        - 8*0.5*var(--sizeFactor)
+                        )*0.5);
+    /* Total with minus field width minus border width */
+}
+
+.field {
+    width: calc(6*var(--sizeFactor));
+    min-width: calc(6*var(--sizeFactor));
+    height: calc(6*var(--sizeFactor));
+    min-height: calc(6*var(--sizeFactor));
+    padding: calc(0.5*var(--sizeFactor)) 0 0 0;
+    margin: 0;
+
+    border-style: groove;
+    border-width: calc(0.5*var(--sizeFactor));
+    border-color: rgb(200, 200, 200);
+
+    font-family: Lucida Console, monospace;
+    font-size: calc(5*var(--sizeFactor));
+    font-weight: bold;
+
+    box-shadow: calc(0.4*var(--sizeFactor))
+                calc(0.4*var(--sizeFactor))
+                calc(0.4*var(--sizeFactor))
+                rgba(0, 0, 0, 0.5);
+}
+
+.jokerField {
+    background-color: var(--basicGray);
+}
+
+.clickableField {
+    cursor: pointer;
+}
+
+@media (hover: hover) {
+    .clickableField:hover {
+        background-color: var(--lightBlue);
+    }
+}
+
+.clickableField:active {
+	background-color: var(--green);
+}
+
+@keyframes click {
+  from {background-color: var(--clickStartColor);}
+  to {background-color: var(--clickEndColor);}
+}
+
+.clickedFieldPlayer {
+	--clickStartColor: var(--green);
+	--clickEndColor: transparent;
+	animation-name: click;
+  	animation-duration: 2s;
+}
+
+.clickedFieldEnemy {
+	--clickStartColor: var(--red);
+	--clickEndColor: transparent;
+	animation-name: click;
+  	animation-duration: 2s;
+}
+
+.clickedJokerFieldPlayer {
+	--clickStartColor: var(--green);
+	--clickEndColor: var(--basicGray);
+	animation-name: click;
+  	animation-duration: 2s;
+}
+
+.clickedJokerFieldEnemy {
+	--clickStartColor: var(--red);
+	--clickEndColor: var(--basicGray);
+	animation-name: click;
+  	animation-duration: 2s;
+}
+
+@keyframes gameEnd {
+	0%   {background-color: transparent;}
+  	50%  {background-color: var(--winColor);}
+  	100% {background-color: transparent;}
+}
+
+.winField {
+	--winColor: var(--green);
+	animation-name: gameEnd;
+	animation-duration: 2s;
+	animation-iteration-count:infinite;
+}
+
+.lossField {
+	--winColor: var(--red);
+	animation-name: gameEnd;
+	animation-duration: 2s;
+	animation-iteration-count:infinite;
+}
+
+#impressDatLink {
+	cursor: pointer;
+    display: inline-block;
+    padding: 0;
+    margin: calc(2*var(--sizeFactor)) 0;
+
+    font-size: calc(2.5*var(--sizeFactor));
+    color: rgb(150, 150, 150);
+	text-decoration: none;
+}
