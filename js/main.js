@@ -375,16 +375,18 @@ class Game {
 		else if (fieldType == 1 && this.gameData.hasPlayerJoker()) {
 			this.placeJoker(field);
 		} else return; /* No valid click. */
+
+		this.htmlGameControl.freezeBoard();
+		this.gameData.boardFreezed = true;
+
 		if (this.checkWin(this.gameData.getPlayer())) return; /* Game end animation is shown. */
+
 		this.htmlGameControl.showClickAnimation(field,
 			fieldType == 0 ? "clickedFieldPlayer" : "clickedJokerFieldPlayer");
-
 		this.startEnemyMove();
 	}
 
 	startEnemyMove() {
-	    this.htmlGameControl.freezeBoard();
-		this.gameData.boardFreezed = true;
 		this.htmlGameControl.setHintToEnemyWait();
 		const inputData = [this.htmlGameControl.getBoardData(),
 						   this.gameData.getEnemy(),
@@ -401,10 +403,7 @@ class Game {
 		const qualityMove = this.enemyMoveSelector.selectMove(enemyQualityMoves);
 		const field = this.htmlGameControl.fieldNumberToField(qualityMove.move.fieldNumber);
 		const animationName = this.placeEnemyToken(field);
-		if (this.checkWin(this.gameData.getEnemy())) {
-			this.htmlGameControl.setHintToLoss();
-			return;
-		}
+		if (this.checkWin(this.gameData.getEnemy())) return; /* Game end animation is shown. */
 		this.htmlGameControl.showClickAnimation(field, animationName);
 
 		this.htmlGameControl.setHintToYourTurn();
